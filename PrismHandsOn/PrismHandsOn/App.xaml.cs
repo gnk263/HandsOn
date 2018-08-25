@@ -15,7 +15,7 @@ namespace PrismHandsOn
 
         protected override void OnInitialized()
         {
-            NavigationService.NavigateAsync(nameof(MainPage));
+            NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(MainPage)}");
         }
     }
 }
