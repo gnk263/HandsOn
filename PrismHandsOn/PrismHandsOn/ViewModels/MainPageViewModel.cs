@@ -16,6 +16,9 @@ namespace PrismHandsOn.ViewModels
 
         public ICommand UpdateMessageCommand => new Command(() => Message = $"Updated on {DateTime.Now}");
 
+        public ICommand AppearingCommand => new Command(() => Message = $"Appearing on {DateTime.Now}");
+
+
         public MainPageViewModel()
         {
 
