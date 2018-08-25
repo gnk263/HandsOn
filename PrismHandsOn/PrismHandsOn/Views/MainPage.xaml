@@ -4,8 +4,10 @@
              xmlns:local="clr-namespace:PrismHandsOn"
              x:Class="PrismHandsOn.Views.MainPage">
 
-	<Label Text="{Binding Message}" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="{Binding Message}"/>
+        <Button Text="Update Message"
+                Command="{Binding UpdateMessageCommand}"/>
+    </StackLayout>
 
 </ContentPage>
