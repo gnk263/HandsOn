@@ -1,4 +1,5 @@
 ﻿using System;
+using Prism;
 using Prism.Ioc;
 using PrismHandsOn.Views;
 using Xamarin.Forms;
@@ -7,6 +8,14 @@ namespace PrismHandsOn
 {
     public partial class App
     {
+        public App()
+        {
+        }
+
+        public App(IPlatformInitializer platformInitializer) : base(platformInitializer)
+        {
+        }
+
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
