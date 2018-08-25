@@ -39,6 +39,10 @@ namespace PrismHandsOn.ViewModels
         public ICommand GoBackCommand =>
             new Command(() => _navigationService.GoBackAsync());
 
+
+        public ICommand SpeakCommand => new Command(() => _textToSpeechService.Speak(ColorName));
+
+
         public SelectedItemPageViewModel(
             INavigationService navigationService,
             ITextToSpeechService textToSpeechService)
