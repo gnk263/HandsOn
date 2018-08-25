@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows.Input;
 using Prism.Mvvm;
+using Xamarin.Forms;
 
 namespace PrismHandsOn.ViewModels
 {
@@ -11,6 +13,8 @@ namespace PrismHandsOn.ViewModels
             get => _message;
             set => SetProperty(ref _message, value);
         }
+
+        public ICommand UpdateMessageCommand => new Command(() => Message = $"Updated on {DateTime.Now}");
 
         public MainPageViewModel()
         {
