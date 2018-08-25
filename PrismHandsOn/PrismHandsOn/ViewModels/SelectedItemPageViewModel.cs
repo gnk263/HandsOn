@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Reflection;
 using Prism.Mvvm;
+using Prism.Navigation;
 using Xamarin.Forms;
 
 namespace PrismHandsOn.ViewModels
 {
-    public class SelectedItemPageViewModel : BindableBase
+    public class SelectedItemPageViewModel : BindableBase, INavigatingAware
     {
         private string _colorName;
 
@@ -21,6 +22,12 @@ namespace PrismHandsOn.ViewModels
         {
             get => _color;
             set => SetProperty(ref _color, value);
+        }
+
+        public void OnNavigatingTo(NavigationParameters parameters)
+        {
+            ColorName = (string)parameters["colorName"];
+            Color = (Color)typeof(Color).GetRuntimeField(ColorName).GetValue(null);
         }
     }
 }
