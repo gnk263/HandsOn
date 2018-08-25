@@ -13,6 +13,9 @@
         <Label Text="{Binding Message}"/>
         <Button Text="Update Message"
                 Command="{Binding UpdateMessageCommand}"/>
+        <Button Text="Navigate to ColorsPage"
+                Command="{Binding NavigateCommand}"
+                CommandParameter="ColorsPage"/>
     </StackLayout>
 
 </ContentPage>
