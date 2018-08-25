@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Windows.Input;
 using Prism.Mvvm;
 using Prism.Navigation;
+using PrismHandsOn.Models;
 using Xamarin.Forms;
 
 namespace PrismHandsOn.ViewModels
@@ -10,6 +11,7 @@ namespace PrismHandsOn.ViewModels
     public class SelectedItemPageViewModel : BindableBase, INavigatingAware
     {
         private readonly INavigationService _navigationService;
+        private readonly ITextToSpeechService _textToSpeechService;
 
         private string _colorName;
 
@@ -37,9 +39,16 @@ namespace PrismHandsOn.ViewModels
         public ICommand GoBackCommand =>
             new Command(() => _navigationService.GoBackAsync());
 
-        public SelectedItemPageViewModel(INavigationService navigationService)
+
+        public ICommand SpeakCommand => new Command(() => _textToSpeechService.Speak(ColorName));
+
+
+        public SelectedItemPageViewModel(
+            INavigationService navigationService,
+            ITextToSpeechService textToSpeechService)
         {
             _navigationService = navigationService;
+            _textToSpeechService = textToSpeechService;
         }
     }
 }
