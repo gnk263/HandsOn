@@ -11,6 +11,7 @@ namespace PrismHandsOn
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<ColorsPage>();
         }
 
         protected override void OnInitialized()
