@@ -9,12 +9,15 @@ namespace PrismHandsOn
     {
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<ColorsPage>();
+            containerRegistry.RegisterForNavigation<SelectedItemPage>();
         }
 
         protected override void OnInitialized()
         {
-            NavigationService.NavigateAsync(nameof(MainPage));
+            NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(MainPage)}");
         }
     }
 }
