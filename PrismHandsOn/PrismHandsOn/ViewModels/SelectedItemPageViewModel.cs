@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Windows.Input;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Xamarin.Forms;
@@ -8,6 +9,8 @@ namespace PrismHandsOn.ViewModels
 {
     public class SelectedItemPageViewModel : BindableBase, INavigatingAware
     {
+        private readonly INavigationService _navigationService;
+
         private string _colorName;
 
         private Color _color;
@@ -28,6 +31,15 @@ namespace PrismHandsOn.ViewModels
         {
             ColorName = (string)parameters["colorName"];
             Color = (Color)typeof(Color).GetRuntimeField(ColorName).GetValue(null);
+        }
+
+
+        public ICommand GoBackCommand =>
+            new Command(() => _navigationService.GoBackAsync());
+
+        public SelectedItemPageViewModel(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
         }
     }
 }

@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PrismHandsOn.Views.SelectedItemPage"
              Title="Selected Item">
-    <Label Text="{Binding ColorName}"
-           TextColor="{Binding Color}"
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="{Binding ColorName}"
+               TextColor="{Binding Color}"/>
+        <Button Text="GoBack" Command="{Binding GoBackCommand}"/>
+    </StackLayout>
 </ContentPage>
