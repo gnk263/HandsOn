@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Prism.Mvvm;
 using Prism.Navigation;
+using PrismHandsOn.Views;
 using Xamarin.Forms;
 
 namespace PrismHandsOn.ViewModels
@@ -24,6 +25,13 @@ namespace PrismHandsOn.ViewModels
         public Command<string> NavigateCommand =>
             new Command<string>(
                 name => _navigationService.NavigateAsync(name));
+
+
+        public ICommand DeepLinkCommand =>
+            new Command(() =>
+                _navigationService.NavigateAsync(
+                    $"{nameof(ColorsPage)}/{nameof(SelectedItemPage)}?colorName=Red"));
+
 
         public MainPageViewModel(INavigationService navigationService)
         {
