@@ -16,6 +16,7 @@
         <Button Text="Navigate to ColorsPage"
                 Command="{Binding NavigateCommand}"
                 CommandParameter="ColorsPage"/>
+        <Button Text="DeepLink" Command="{Binding DeepLinkCommand}"/>
     </StackLayout>
 
 </ContentPage>
