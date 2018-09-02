@@ -4,6 +4,7 @@ using System.Windows.Input;
 using Prism.Mvvm;
 using Prism.Navigation;
 using PrismHandsOn.Models;
+using PrismHandsOn.Views;
 using Xamarin.Forms;
 
 namespace PrismHandsOn.ViewModels
@@ -41,6 +42,12 @@ namespace PrismHandsOn.ViewModels
 
 
         public ICommand SpeakCommand => new Command(() => _textToSpeechService.Speak(ColorName));
+
+
+        public ICommand NavigateOrangeCommand =>
+            new Command(() =>
+                _navigationService.NavigateAsync(
+                    $"/{nameof(NavigationPage)}/{nameof(MainPage)}/{nameof(ColorsPage)}/{nameof(SelectedItemPage)}?colorName=Orange"));
 
 
         public SelectedItemPageViewModel(
